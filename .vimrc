@@ -125,8 +125,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
 "Plugin 'valloric/youcompleteme'
 Plugin 'tpope/vim-fugitive'
-"Bundle 'mattn/webapi-vim'
-"Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 Plugin 'jeetsukumaran/vim-buffergator'
 "Bundle 'joonty/vim-phpqa.git'
 Plugin 'scrooloose/syntastic'
@@ -187,3 +187,18 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_php_checkers = ['php']
+
+let g:gist_post_private = 1
+let g:gist_show_privates = 1
+
+let php_sql_query=1
+let php_htmlInStrings=1
+let php_noShortTags=1
+let php_folding=0
+let php_baselib=1
+let php_asp_tags=0
+let php_parent_error_close=1
+let php_parent_error_open=1
+"let php_sync_method=10  " Sync only 10 lines backwards
+let php_alt_comparisons=1
+let php_alt_assignByReference=1
