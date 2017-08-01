@@ -105,6 +105,7 @@ if has("autocmd")
 	filetype on
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+	autocmd BufNewFile,BufRead *.php setfiletype php syntax=php
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
@@ -113,6 +114,7 @@ inoremap jj <ESC>
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=$HOME
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -125,11 +127,14 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
 "Plugin 'valloric/youcompleteme'
 Plugin 'tpope/vim-fugitive'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Plugin 'jeetsukumaran/vim-buffergator'
+"Bundle 'mattn/webapi-vim'
+"Bundle 'mattn/gist-vim'
+"Plugin 'jeetsukumaran/vim-buffergator'
 "Bundle 'joonty/vim-phpqa.git'
 Plugin 'scrooloose/syntastic'
+Plugin 'SirVer/ultisnips'
+Plugin 'ryanss/vim-hackernews'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -157,13 +162,13 @@ let g:buffergator_suppress_keymaps = 1
 "let g:buffergator_mru_cycle_loop = 1
 
 " Go to the previous buffer open
-nmap <leader>jj :BuffergatorMruCyclePrev<cr>
+"nmap <leader>jj :BuffergatorMruCyclePrev<cr>
 
 " to the next buffer open
-nmap <leader>kk :BuffergatorMruCycleNext<cr>
+"nmap <leader>kk :BuffergatorMruCycleNext<cr>
 
 " View the entire list of buffers open
-nmap <leader>bl :BuffergatorOpen<cr>
+"nmap <leader>bl :BuffergatorOpen<cr>
 
 " Shared bindings from Solution #1 from earlier
 nmap <leader>T :enew<cr>
@@ -186,10 +191,11 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_php_checkers = ['php']
+let g:syntastic_php_checkers=['php', 'phpcs']
+let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
 
-let g:gist_post_private = 1
 let g:gist_show_privates = 1
+let g:gist_post_private = 1
 
 let php_sql_query=1
 let php_htmlInStrings=1
@@ -202,3 +208,10 @@ let php_parent_error_open=1
 "let php_sync_method=10  " Sync only 10 lines backwards
 let php_alt_comparisons=1
 let php_alt_assignByReference=1
+
+" snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+"let g:UltiSnipsSnippetsDir='~/.vim/snippets/UltiSnips'
+"let g:UltiSnipsSnippetDirectories=["UltiSnips"]
