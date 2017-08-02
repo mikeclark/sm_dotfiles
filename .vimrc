@@ -134,6 +134,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 Plugin 'SirVer/ultisnips'
 Plugin 'ryanss/vim-hackernews'
+"Plugin 'beanworks/vim-phpfmt'
+Bundle 'stephpy/vim-php-cs-fixer'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -215,3 +217,13 @@ let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 "let g:UltiSnipsSnippetsDir='~/.vim/snippets/UltiSnips'
 "let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+"
+"
+"let g:phpfmt_standard = 'PSR2'
+"let g:phpfmt_autosave = 0
+"let g:phpfmt_command = '/usr/local/bin/phpcbf'
+let g:php_cs_fixer_rules = "@PSR2"
+let g:php_cs_fixer_php_path = "/usr/bin/php"
+let g:php_cs_fixer_enable_default_mapping = 1
+let g:php_cs_fixer_dry_run = 0
+let g:php_cs_fixer_verbose = 0
