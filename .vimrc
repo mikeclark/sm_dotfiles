@@ -141,8 +141,12 @@ Bundle 'stephpy/vim-php-cs-fixer'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-
-
+" ctrlp ignore
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/](\.git|node_modules|\.sass-cache|bower_components|bui‌​ld)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
@@ -227,3 +231,4 @@ let g:php_cs_fixer_php_path = "/usr/bin/php"
 let g:php_cs_fixer_enable_default_mapping = 1
 let g:php_cs_fixer_dry_run = 0
 let g:php_cs_fixer_verbose = 0
+
