@@ -98,7 +98,8 @@ endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
-
+" Trim whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 " Automatic commands
 if has("autocmd")
 	" Enable file type detection
@@ -198,7 +199,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_php_checkers=['php', 'phpcs']
-let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
+let g:syntastic_php_phpcs_args='--standard=PSR2 --exclude=PSR1.Classes.ClassDeclaration,PSR1.Methods.CamelCapsMethodName,Squiz.Classes.ValidClassName -n'
 
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
