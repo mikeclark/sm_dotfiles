@@ -222,8 +222,7 @@ let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 "let g:UltiSnipsSnippetsDir='~/.vim/snippets/UltiSnips'
 "let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-"
-"
+
 "let g:phpfmt_standard = 'PSR2'
 "let g:phpfmt_autosave = 0
 "let g:phpfmt_command = '/usr/local/bin/phpcbf'
@@ -233,3 +232,7 @@ let g:php_cs_fixer_enable_default_mapping = 1
 let g:php_cs_fixer_dry_run = 0
 let g:php_cs_fixer_verbose = 0
 
+"fix windows line endings (ctrl-v, ctrl-m)
+nmap <leader>le :%s/\r$//g<CR>
+"find php short tags (but don't replace)
+nmap <leader>st :/<?\($\<bar>[^(p<bar>P)]\)<CR>
