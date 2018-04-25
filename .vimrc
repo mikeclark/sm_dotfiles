@@ -6,7 +6,7 @@ let g:solarized_termtrans=1
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
+set clipboard=unnamedplus
 " Enhance command-line completion
 set wildmenu
 " Allow cursor keys in insert mode
@@ -27,8 +27,14 @@ set noeol
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
-if exists("&undodir")
-	set undodir=~/.vim/undo
+"if exists("&undodir")
+"	set undodir=~/.vim/undo
+"endif
+if has('persistent_undo') && exists('&undodir')
+    set undodir=~/.vim/undo/    " where to store undofiles
+    set undofile                " enable undofile
+    set undolevels=1000          " max undos stored
+    set undoreload=10000        " buffer stored undos
 endif
 
 " Don’t create backups when editing files in certain directories
