@@ -66,3 +66,9 @@ fi
 eval "$(pyenv init -)"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+if [ -e /home/clark/.nix-profile/etc/profile.d/nix.sh ]; then . /home/clark/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+bind '"\C-b": beginning-of-line'
