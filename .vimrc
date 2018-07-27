@@ -207,6 +207,9 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_php_checkers=['php', 'phpcs']
 let g:syntastic_php_phpcs_args='--standard=PSR2 --exclude=PSR1.Classes.ClassDeclaration,PSR1.Methods.CamelCapsMethodName,Squiz.Classes.ValidClassName -n'
+let g:syntastic_php_phpmd_exec = 'phpmd'
+"options: cleancode,codesize,controversial,design,unusedcode
+let g:syntastic_php_phpmd_post_args = 'unusedcode'
 
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
@@ -243,6 +246,8 @@ let g:php_cs_fixer_verbose = 0
 nmap <leader>le :%s/\r$//g<CR>
 "find php short tags (but don't replace)
 nmap <leader>st :/<?\($\<bar>[^(p<bar>P)]\)<CR>
+"run syntastic phpmd
+nmap <leader>md :SyntasticCheck phpmd<CR>
 
 " vim-go
 let g:go_fmt_command = "goimports"
